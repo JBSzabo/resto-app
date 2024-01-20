@@ -12,13 +12,12 @@ export default {
     plugins: [
         // ...
         require("@tailwindcss/aspect-ratio"),
-        require("daisyui"),
     ],
 
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                sans: ['"Urbanist"', ...defaultTheme.fontFamily.sans],
             },
         },
     },

@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'NOMA') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@1,200&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -22,27 +26,27 @@
         x-data="{ isOpen: false }">
         <!-- Navbar -->
         <nav
-            class="relative z-20 top-0 right-0 w-full inline-block px-10 pt-5 text-2xl text-black bg-transparent bg-opacity-50 rounded-xl">
+            class="relative z-20 top-0 right-0 w-full inline-block px-10 pt-5 text-3xl text-black bg-transparent  bg-opacity-50 rounded-xl">
             <div class="flex justify-between items-center">
                 <div>
-                    <a href="index.html">
-                        <img alt="Picnic Bistro Logo" class="h-20 lg:h-32"
-                            src='{{ asset('/storage/assets/img/picnic-logo-black.svg') }}'>
+                    <a href="{{ route('index') }}">
+                        <img class="h-14" src='{{ asset('/storage/assets/img/logo.png') }}'>
                     </a>
                 </div>
                 <div class="hidden lg:block">
                     <ul class="flex">
                         <li class="px-4 py-4">
-                            <a class="text-menu--item tracking-widest font-thin"
-                                href="{{ route('meals.index') }}">MENI</a>
+                            <a class="text-menu--item tracking-widest font-thin hover:font-bold"
+                                href="{{ route('meals.index') }}">O NAMA</a>
                         </li>
                         <li class="px-4 py-4">
-                            <a class="text-menu--item tracking-widest"
+                            <a class="text-menu--item tracking-widest hover:font-bold"
+                                href="{{ route('categories.index') }}">MENI</a>
+
+                        </li>
+                        <li class="px-4 py-4">
+                            <a class="text-menu--item tracking-widest hover:font-bold"
                                 href="{{ route('reservations.step.one') }}">REZERVACIJE</a>
-                        </li>
-                        <li class="px-4 py-4">
-                            <a class="text-menu--item tracking-widest" href="{{ route('categories.index') }}">TEST
-                                1</a>
                         </li>
                     </ul>
                 </div>
@@ -63,6 +67,7 @@
 
 
             </div>
+
             <div :class="{ 'block': isOpen, 'hidden': !isOpen }" @click.away="isOpen = false"
                 class="w-full h-full z-50 lg:hidden lg:flex lg:items-center lg:w-auto text-right"
                 x-show.transition="true">
@@ -75,19 +80,20 @@
                     <li class="mr-3">
                         <a @click="isOpen = false"
                             class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="{{ route('meals.index') }}">MENI
+                            href="{{ route('meals.index') }}">O NAMA
+                        </a>
+                    </li>
+                    <li class="mr-3">
+                        <a @click="isOpen = false"
+                            class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                            href="{{ route('categories.index') }}">MENI
+
                         </a>
                     </li>
                     <li class="mr-3">
                         <a @click="isOpen = false"
                             class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
                             href="{{ route('reservations.step.one') }}">REZERVACIJE
-                        </a>
-                    </li>
-                    <li class="mr-3">
-                        <a @click="isOpen = false"
-                            class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="{{ route('categories.index') }}">CONTACT
                         </a>
                     </li>
                 </ul>
@@ -106,43 +112,42 @@
     <footer class="container mx-auto">
         <div class="flex flex-wrap-reverse lg:flex-nowrap items-center justify-center lg:justify-between">
             <div class="flex justify-center items-center w-full lg:w-1/4">
-                <img alt="Picnic Bistro Logo" class="h-24 md:h-32"
-                    src='{{ asset('/storage/assets/img/picnic-logo-black.svg') }}'>
+                <img class="h-14" src='{{ asset('/storage/assets/img/logo.png') }}'>
             </div>
             <div class="flex justify-center h-64 w-full lg:w-1/4">
-                <ul>
-                    <li class="font-sans text-2xl font-bold tracking-wide pb-6">SITE MENU</li>
-                    <li class="pb-1">Meniu</li>
-                    <li class="pb-1">Rezervari</li>
-                    <li class="pb-1">Contact</li>
-                    <li class="pb-1">Politica de utilizare a site-ului</li>
-                    <li class="pb-1">Politica de cookies</li>
-                    <li class="pb-1">Informatii GDPR</li>
+                <ul class="-ml-20">
+                    <li class="font-sans text-2xl font-bold tracking-wide pb-4">KONTAKT</li>
+                    <li class="font-sans  font-bold text-lg py-2">ADRESA :</li>
+                    <li>REFSHALEVEJ 96<br>1432 COPENHAGEN K</li>
+                    <li class="font-sans  font-bold text-lg py-2">MOBITEL / EMAIL :</li>
+                    <li>+45 32 96 32 97</li>
+                    <li>noma@noma.dk</li>
                 </ul>
             </div>
             <div class="flex justify-center h-64 w-full lg:w-1/4">
                 <ul class="-ml-20">
-                    <li class="font-sans text-2xl font-bold tracking-wide pb-4">FIND US</li>
-                    <li class="font-sans  font-bold text-lg py-2">Adresa :</li>
-                    <li>Ineu, Bihor, RO</li>
-                    <li class="font-sans  font-bold text-lg py-2">Phone / Email :</li>
-                    <li>+40 742 742 642</li>
-                    <li>info@picnicbistro.ro</li>
+                    <li class="font-sans text-2xl font-bold tracking-wide pb-4">RADNO VRIJEME</li>
+                    <li class="font-sans  font-bold text-lg py-2">PONEDJELJAK - PETAK,</li>
+                    <li>11:00 - 21:00</li>
+                    <li class="font-sans  font-bold text-lg py-2">SUBOTA - NEDJELJA,</li>
+                    <li>11:00 - 22:00</li>
                 </ul>
             </div>
             <div class="flex justify-center h-64 w-full ml-10 lg:-ml-0 lg:w-1/4">
                 <ul>
-                    <li class="font-sans text-2xl font-bold tracking-wide pb-4">SOCIAL</li>
-                    <li class="font-sans font-bold text-lg py-2">Find us on social</li>
-                    <li>instagram • facebook • soundcloud</li>
-                    <li class="font-sans font-bold text-lg py-2">Leave us a note</li>
-                    <li>resengo • yelp • tripadvisor</li>
+                    <li class="font-sans text-2xl font-bold tracking-wide pb-4">MREŽE</li>
+                    <li class="font-sans font-bold text-lg py-2">ZAPRATI NAS NA :</li>
+                    <li class="py-1"><a class="hover:font-bold underline"
+                            href="https://www.instagram.com/nomacph/">INSTAGRAM</a>
+                    </li>
+                    <li class="py-1"><a class="hover:font-bold underline"
+                            href="https://twitter.com/nomacph">TWITTER</a></li>
                 </ul>
             </div>
         </div>
         <div class="flex justify-center items-center pt-20">
             <p class="text-sm">
-                Dev by <a href="https://blondelguillau.me">Guillaume Blondel</a>
+                Dev by <a href="https://github.com/JBSzabo">Josip-Benjamin Szabo</a>
             </p>
         </div>
     </footer>
