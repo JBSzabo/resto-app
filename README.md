@@ -4,10 +4,10 @@ Restaurant rebuilt using Laravel
 
 TODO:
 
--   Add localization support
+-   Add icons to admin dashboard
 
--   Error landing pages
+-   Dark theme
 
--   Beautify Categories and menu
+-   Mail confirmation
 
--   Beautify reservations
+-   Locale switch
