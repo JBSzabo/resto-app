@@ -98,7 +98,7 @@ class MealController extends Controller
     public function destroy(Meal $meal)
     {
         Storage::delete($meal->image);
-        $meal->categories->detach();
+        //$meal->categories->detach();
         $meal->delete();
 
         return to_route('admin.meals.index')->with('success', 'Jelo izbrisano');

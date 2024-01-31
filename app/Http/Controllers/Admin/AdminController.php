@@ -24,15 +24,15 @@ class AdminController extends Controller
         for ($i=0; $i < 12; $i++) { 
             $chart_data[$i] = Reservation::whereYear('res_date', Carbon::now())->whereMonth('res_date', $i+1)->count();
         }
-        $this_week[0] = Reservation::whereYear('res_date', Carbon::now())->whereMonth('res_date', Carbon::now())->whereDay('res_date', $week)->count();
+        $this_week[0] = Reservation::whereDay('res_date', $week)->count();
         for ($i=0; $i < 7; $i++) { 
             $dates[$i] = $week->isoFormat('dddd D.M.');
-            $this_week[$i+1] = Reservation::whereYear('res_date', Carbon::now())->whereMonth('res_date', Carbon::now())->whereDay('res_date', $week->addDays(1))->count();
+            $this_week[$i+1] = Reservation::whereDay('res_date', $week->addDays(1))->count();
         }
-        $next_week[0] = Reservation::whereYear('res_date', Carbon::now())->whereMonth('res_date', Carbon::now())->whereDay('res_date', $week)->count();
+        $next_week[0] = Reservation::whereDay('res_date', $week)->count();
         for ($i=0; $i < 7; $i++) { 
             $dates_next[$i] = $week->isoFormat('dddd D.M.');
-            $next_week[$i+1] = Reservation::whereYear('res_date', Carbon::now())->whereMonth('res_date', Carbon::now())->whereDay('res_date', $week->addDays(1))->count();
+            $next_week[$i+1] = Reservation::whereDay('res_date', $week->addDays(1))->count();
         }
 
         $tables = Reservation::join('tables', 'reservations.table_id', '=', 'tables.id')->select('tables.name', DB::raw('COUNT(*) as count'))->groupBy('table_id')->get();

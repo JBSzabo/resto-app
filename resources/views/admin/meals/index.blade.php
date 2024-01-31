@@ -47,7 +47,6 @@
                                 <td class="px-6 py-4 text-black">
                                     {{ $meal->price }} €
                                 </td>
-                                </td>
                                 <td class="px-6 py-4">
                                     <div class="flex space-x-2">
                                         <a href="{{ route('admin.meals.edit', $meal->id) }}"

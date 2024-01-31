@@ -67,7 +67,7 @@
             datasets: [{
                 label: "Broj rezervacija",
                 data: {!! json_encode($chart_data) !!},
-                borderColor: '#baffc9',
+                borderColor: '#06A00F',
                 backgroundColor: '#00b159',
             }, ],
         };

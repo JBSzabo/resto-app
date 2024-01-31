@@ -27,7 +27,7 @@
         <div @click.away="open = false" class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-slate-100 md:w-64"
             x-data="{ open: false }">
             <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
-                <a href="{{ route('admin.index') }}"
+                <a href="{{ route('index') }}"
                     class="text-3xl font-semibold tracking-widest text-gray-900  rounded-lg  focus:outline-none focus:shadow-outline">n
                     o m a</a>
                 <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
@@ -44,12 +44,6 @@
             <nav :class="{ 'block': open, 'hidden': !open }"
                 class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
                 <x-admin-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
-                        <path
-                            d="m21.743 12.331-9-10c-.379-.422-1.107-.422-1.486 0l-9 10a.998.998 0 0 0-.17 1.076c.16.361.518.593.913.593h2v7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-7h2a.998.998 0 0 0 .743-1.669z">
-                        </path>
-                    </svg>
                     {{ __('Početna') }}
                 </x-admin-nav-link>
                 <x-admin-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">

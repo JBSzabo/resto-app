@@ -17,32 +17,33 @@
             </a>
 
 
-            <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-
-
-                @foreach ($category->meals as $meal)
-                    <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
-                        <div
-                            class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-96">
-                            <img src="{{ Storage::url($meal->image) }}" alt="card-image" class=" h-full" />
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center justify-between mb-2">
-                                <p class="block font-sans antialiased text-2xl  text-blue-black">
-                                    {{ $meal->name }}
-                                </p>
-                                <p class="block font-sans antialiased text-xl  text-blue-gray-900">
-                                    {{ $meal->price }} €
+            <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 min-h-screen">
+                <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
+                    @foreach ($category->meals as $meal)
+                        <!-- Card -->
+                        <div class="h-full block rounded-lg bg-white shadow-xl  text-left">
+                            <!-- Card image -->
+                            <img class="rounded-t-lg " src="{{ Storage::url($meal->image) }}" alt="" />
+                            <!-- Card body -->
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <p class="block font-sans antialiased text-2xl  text-blue-black">
+                                        {{ $meal->name }}
+                                    </p>
+                                    <p class="block font-sans antialiased text-xl  text-blue-gray-900">
+                                        {{ $meal->price }} €
+                                    </p>
+                                </div>
+                                <p class="block font-sans antialiased text-lg  text-gray-800 ">
+                                    {{ $meal->description }}
                                 </p>
                             </div>
-                            <p class="block font-sans antialiased text-lg  text-gray-800 ">
-                                {{ $meal->description }}
-                            </p>
                         </div>
-                    </div>
-                @endforeach
-
+                        <!-- Card -->
+                    @endforeach
+                </div>
             </div>
+
         </div>
     </div>
 </x-guest-layout>
