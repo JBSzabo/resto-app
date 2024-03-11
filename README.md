@@ -6,8 +6,6 @@ TODO:
 
 -   Add icons to admin dashboard
 
--   Dark theme
-
--   Mail confirmation
+-   Dark theme switch
 
 -   Locale switch
